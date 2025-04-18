@@ -69,10 +69,18 @@
     <script>
       // You can add custom JavaScript here if needed
       // For example, to rotate content, refresh iframes periodically, etc.
-      document.addEventListener('mousedown', function () {
-        console.log('mousedown');
+
+      // window mousedown event not recognized
+      // mousedown event not recognized
+      window.addEventListener('mousedown', function () {
+        console.log('window mousedown');
         ui_toggleFullScreen();
       });
+
+      // Uncaught (in promise) TypeError: Permissions check failed
+      // Wait 10 secs then go full screen
+      // setTimeout(ui_toggleFullScreen, 10 * 1000);
+
       function ui_toggleFullScreen() {
         if (!document.documentElement.requestFullscreen) {
           console.log('NO document.documentElement.requestFullscreen');
