@@ -1,5 +1,7 @@
 # resistance-3x
 
+- [enter](src/index.html)
+
 ```
 
 claude: html and css to play 3 iframes in 1080 by 1920 oriention stacked vertically
