@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vertical Stacked iFrames</title>
+    <title>?v=1 resistance-3x</title>
     <style>
       * {
         margin: 0;
@@ -52,7 +52,7 @@
     <div class="separator"></div>
     <div class="iframe-container">
       <iframe
-        src="https://molab-itp.github.io/moSalon/src/videoplayer/?playlist=8K6-cEAJZlE"
+        src="https://molab-itp.github.io/p5moLibrary/src/demo/mo-videoplayer/?playlist=8K6-cEAJZlE"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
@@ -60,7 +60,7 @@
     <div class="separator"></div>
     <div class="iframe-container">
       <iframe
-        src="https://molab-itp.github.io/moSalon/src/videoplayer/?playlist=ge5wsaTpuz8"
+        src="https://molab-itp.github.io/p5moLibrary/src/demo/mo-videoplayer/?playlist=ge5wsaTpuz8"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
@@ -69,6 +69,23 @@
     <script>
       // You can add custom JavaScript here if needed
       // For example, to rotate content, refresh iframes periodically, etc.
+      document.addEventListener('mousedown', function () {
+        console.log('mousedown');
+        ui_toggleFullScreen();
+      });
+      function ui_toggleFullScreen() {
+        if (!document.documentElement.requestFullscreen) {
+          console.log('NO document.documentElement.requestFullscreen');
+          return;
+        }
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else {
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          }
+        }
+      }
     </script>
   </body>
 </html>
