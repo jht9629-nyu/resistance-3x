@@ -1,5 +1,6 @@
 # resistance-3x ?v=2
 
+- [enter 2](src/index-2.html)
 - [enter](src/index.html)
 
 ```
