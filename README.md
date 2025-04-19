@@ -1,4 +1,4 @@
-# resistance-3x
+# resistance-3x ?v=2
 
 - [enter](src/index.html)
 
