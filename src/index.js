@@ -4,7 +4,7 @@ console.log('index.js');
 // mousedown event not recognized
 window.addEventListener('mousedown', function () {
   console.log('window mousedown');
-  ui_toggleFullScreen();
+  // ui_toggleFullScreen();
 });
 
 // Uncaught (in promise) TypeError: Permissions check failed
@@ -29,10 +29,32 @@ document.addEventListener('DOMContentLoaded', doc_ready);
 
 function doc_ready() {
   console.log('DOMContentLoaded');
-
   // Create a button element
   const fullscreenButton = document.createElement('button');
+  set_button_props(fullscreenButton);
+  // Add event listener to toggle fullscreen
+  fullscreenButton.addEventListener('click', function () {
+    if (!document.fullscreenElement) {
+      // Request fullscreen
+      console.log('requestFullscreen');
+      if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+      }
+      // fullscreenButton.innerHTML = 'Exit Fullscreen';
+      fullscreenButton.parentNode.removeChild(fullscreenButton);
+    } else {
+      // Exit fullscreen
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+      // fullscreenButton.innerHTML = 'Toggle Fullscreen';
+    }
+  });
+  // Add button to document body
+  document.body.appendChild(fullscreenButton);
+}
 
+function set_button_props(fullscreenButton) {
   // Set button properties
   fullscreenButton.innerHTML = 'Toggle Fullscreen';
   fullscreenButton.style.position = 'fixed';
@@ -47,24 +69,4 @@ function doc_ready() {
   fullscreenButton.style.border = 'none';
   fullscreenButton.style.borderRadius = '4px';
   fullscreenButton.style.cursor = 'pointer';
-
-  // Add event listener to toggle fullscreen
-  fullscreenButton.addEventListener('click', function () {
-    if (!document.fullscreenElement) {
-      // Request fullscreen
-      if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
-      }
-      fullscreenButton.innerHTML = 'Exit Fullscreen';
-    } else {
-      // Exit fullscreen
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
-      fullscreenButton.innerHTML = 'Toggle Fullscreen';
-    }
-  });
-
-  // Add button to document body
-  document.body.appendChild(fullscreenButton);
 }
