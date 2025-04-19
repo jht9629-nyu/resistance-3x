@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+.iframe-container {
+  flex: 1;
+  width: 100%;
+  border: none;
+  position: relative;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Add a subtle separator between iframes */
+.separator {
+  height: 2px;
+  background-color: #444;
+  width: 100%;
+}
